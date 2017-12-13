@@ -4,11 +4,11 @@
 
 using namespace std;
 
-class Complex         // класс "Комплексное число"
+class Complex         // РєР»Р°СЃСЃ "РљРѕРјРїР»РµРєСЃРЅРѕРµ С‡РёСЃР»Рѕ"
 {
 
 public:
-	// конструкторы 
+	// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹ 
 	double re, im;
 	Complex()
 	{
@@ -26,20 +26,20 @@ public:
 		im = i;
 	}
 
-	Complex(const Complex &c)   // конструктор копирования
+	Complex(const Complex &c)   // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	{
 		re = c.re;
 		im = c.im;
 	}
 
-	/* деструктор*/
+	/* РґРµСЃС‚СЂСѓРєС‚РѕСЂ*/
 	~Complex()
 	{
 	}
 
-	// остальные функции
+	// РѕСЃС‚Р°Р»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё
 
-	// Модуль комплексного числа
+	// РњРѕРґСѓР»СЊ РєРѕРјРїР»РµРєСЃРЅРѕРіРѕ С‡РёСЃР»Р°
 	double abs()
 	{
 		return sqrt(re * re + im * im);
@@ -51,7 +51,7 @@ public:
 		if ()
 	}*/
 
-	// оператор присваивания
+	// РѕРїРµСЂР°С‚РѕСЂ РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	Complex& operator = (Complex c)
 	{
 		re = c.re;
@@ -61,7 +61,7 @@ public:
 	}
 
 
-	// оператор +=
+	// РѕРїРµСЂР°С‚РѕСЂ +=
 	Complex& operator += (Complex &c)
 	{
 		re += c.re;
@@ -69,25 +69,25 @@ public:
 		return *this;
 	}
 
-	// оператор сложения
+	// РѕРїРµСЂР°С‚РѕСЂ СЃР»РѕР¶РµРЅРёСЏ
 	Complex operator + (const Complex &c)
 	{
 		return Complex(re + c.re, im + c.im);
 	}
 
-	// оператор вычитания
+	// РѕРїРµСЂР°С‚РѕСЂ РІС‹С‡РёС‚Р°РЅРёСЏ
 	Complex operator - (const Complex &c)
 	{
 		return Complex(re - c.re, im - c.im);
 	}
 
-	// оператор умножения
+	// РѕРїРµСЂР°С‚РѕСЂ СѓРјРЅРѕР¶РµРЅРёСЏ
 	Complex operator * (const Complex &c)
 	{
 		return Complex(re * c.re - im * c.im, re * c.im + im * c.re);
 	}
 
-	// оператор деления
+	// РѕРїРµСЂР°С‚РѕСЂ РґРµР»РµРЅРёСЏ
 	Complex operator / (const Complex &c)
 	{
 		Complex temp;
@@ -99,46 +99,46 @@ public:
 		return temp;
 	}
 
-	// оператор неравенства
+	// РѕРїРµСЂР°С‚РѕСЂ РЅРµСЂР°РІРµРЅСЃС‚РІР°
 	bool operator != (const Complex &c)
 	{
 		return ((re!=c.re)||(im!=c.im));
 	}
 
-	// оператор больше
+	// РѕРїРµСЂР°С‚РѕСЂ Р±РѕР»СЊС€Рµ
 	bool operator > (const Complex &c)
 	{
 		return ((re > c.re) || (re==c.re)&&(im >c.im));
 	}
 
-	// оператор меньше
+	// РѕРїРµСЂР°С‚РѕСЂ РјРµРЅСЊС€Рµ
 	bool operator < (const Complex &c)
 	{
 		return ((re < c.re) || (re == c.re) && (im <c.im));
 	}
 
-	// оператор равенства
+	// РѕРїРµСЂР°С‚РѕСЂ СЂР°РІРµРЅСЃС‚РІР°
 	bool operator == (const Complex &c)
 	{
 		return ((re == c.re) && (im ==c.im));
 	}
 
-	// укажем дружественные операторы, которым мы разрешаем доступ
-	// к личным (private) данным
+	// СѓРєР°Р¶РµРј РґСЂСѓР¶РµСЃС‚РІРµРЅРЅС‹Рµ РѕРїРµСЂР°С‚РѕСЂС‹, РєРѕС‚РѕСЂС‹Рј РјС‹ СЂР°Р·СЂРµС€Р°РµРј РґРѕСЃС‚СѓРї
+	// Рє Р»РёС‡РЅС‹Рј (private) РґР°РЅРЅС‹Рј
 	friend ostream & operator<< (ostream &, const Complex &);
 	friend istream & operator>> (istream &, Complex &);
 private:
 
 };
 
-// перегрузка оператора <<
+// РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° <<
 ostream& operator<< (ostream &out, const Complex &c)
 {
 	out << "(" << c.re << ", " << c.im << ")";
 	return out;
 }
 
-// перегрузка оператора >>
+// РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° >>
 istream& operator>> (istream &in, Complex &c)
 {
 	in >> c.re >> c.im;
