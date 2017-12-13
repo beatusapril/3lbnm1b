@@ -46,11 +46,6 @@ public:
 		return sqrt(re * re + im * im);
 	}
 
-	/*bool correctNumber()
-	{
-		bool result = true;
-		if ()
-	}*/
 
 	// оператор присваивания
 	Complex& operator = (Complex c)
